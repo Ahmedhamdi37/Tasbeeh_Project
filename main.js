@@ -6,8 +6,8 @@ let counter = 0;
 
 btn.onclick = () => {
   btn.disabled = true;
+  btn.style.backgroundColor = 'gray';
 
-  // المرحلة 1 — سبحان الله
   counter = 0;
   let intOne = setInterval(() => {
     text.style.color = 'white';
@@ -15,7 +15,6 @@ btn.onclick = () => {
     if (counter === 33) {
       clearInterval(intOne);
 
-      // المرحلة 2 — الحمد لله
       counter = 0;
       let intTwo = setInterval(() => {
         text.style.color = 'red';
@@ -23,24 +22,26 @@ btn.onclick = () => {
         if (counter === 33) {
           clearInterval(intTwo);
 
-          // المرحلة 3 — الله أكبر
           counter = 0;
           let intThree = setInterval(() => {
             text.style.color = 'gold';
-            text.textContent = `اللهُ أكبر ${++counter}`;
+            text.textContent = ` اللهُ أكبر ${counter + 1}`;
+            counter++;
             if (counter === 33) {
               clearInterval(intThree);
 
-              // المرحلة 4 — الذكر الأخير
               text.style.color = 'green';
               text.textContent =
                 'لا إلهَ إلا اللهُ وحدَه لا شريكَ له، لهُ المُلكُ ولهُ الحمدُ، وهو على كلِّ شيءٍ قدير';
               btn.disabled = false;
-              alert('جعلها الله في ميزان حسناتكم');
+              btn.style.backgroundColor = 'gold';
+              setTimeout(() => {
+                alert('جعلها الله في ميزان حسناتكم');
+              }, 1000);
             }
-          }, 1000);
+          }, 500);
         }
-      }, 1000);
+      }, 500);
     }
-  }, 1000);
+  }, 500);
 };
